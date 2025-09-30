@@ -1,21 +1,49 @@
-<section id="services">
-  {{> sectionHeader title="Услуги"}}
+ <section id="services">
+        {{> sectionHeader title="Услуги"}}
 
-  <div class="wrapper">
-    <div class="services-grid">
-      {{#each services}}
-        <div class="service">
-          <div class="container has-transition">
-            <div class="service-head">
-              <div class="number">{{number}}</div>
-              <div class="title">{{title}}</div>
+        <div class="wrapper">
+            <div class="services-grid">
+                {{#each services}}
+                    <div class="service">
+                        <div class="container has-transition">
+                            <div class="service-head">
+                                <div class="number">{{number}}</div>
+                                <div class="title">{{title}}</div>
+                            </div>
+                            <div class="service-body">
+                                <p>{{description}}</p>
+                            </div>
+                            <!-- Кнопка для открытия модалки -->
+                            <button type="button" class="btn-modal" data-bs-toggle="modal" data-bs-target="#modal-{{@index}}">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Модальное окно для каждой услуги -->
+                    <div class="modal fade" id="modal-{{@index}}" tabindex="-1" aria-labelledby="modalLabel-{{@index}}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-{{@index}}">{{title}}</h5>
+                                </div>
+
+                                <div class="modal-body">
+                                    {{detailed}}
+                                    <!-- Можно добавить дополнительную информацию -->
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                {{/each}}
             </div>
-            <div class="service-body">
-              <p>{{description}}</p>
-            </div>
-          </div>
         </div>
-      {{/each}}
-    </div>
-  </div>
-</section>
+ </section>
+

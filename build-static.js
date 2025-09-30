@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const Handlebars = require('handlebars');
 
-const DATA = require('./data.json');
+// const DATA = require('./data.json');
+const dataPath = path.join(__dirname, 'data.json');
+const rawData = fs.readFileSync(dataPath, 'utf8');
+const DATA = JSON.parse(rawData);
+
 
 const partialsDir = path.join(__dirname, 'templates');
 fs.readdirSync(partialsDir)
