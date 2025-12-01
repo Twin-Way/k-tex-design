@@ -30,6 +30,17 @@
                                 </div>
 
                                 <div class="modal-body">
+                                    <div class="modal-img">
+                                        {{> pictureBlock
+                                                path="/imgs/services/"
+                                                base=img.base
+                                                avif1="1"
+                                                avif2="2"
+                                                sizes="300px"
+                                                params=""
+                                                alt=img.alt
+                                        }}
+                                    </div>
                                     {{detailed}}
                                     <!-- Можно добавить дополнительную информацию -->
                                 </div>
