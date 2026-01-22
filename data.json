@@ -174,7 +174,16 @@
                     "base": "image_2",
                     "alt": "Лазурь"
                 }
-            }
+            },
+          {
+            "title": "Лазурь",
+            "properties": "50 × 50 см, шенил, Италия",
+            "details": "Набор из 4-х подушек из итальянского шенила, выполненный в глубоких благородных оттенках. Доступен для покупки целиком или парами.",
+            "availability": "В наличии",
+            "img": {
+              "base": "image_2",
+              "alt": "Лазурь"
+          }}
         ],
         "videoEmbed": "<iframe src=\"https://vkvideo.ru/video_ext.php?oid=-225174876&amp;id=456239036&amp;hd=2\" width=\"560\" height=\"315\" loading=\"lazy\" referrerpolicy=\"no-referrer\" allow=\"encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;\" frameborder=\"0\"></iframe>"
     },

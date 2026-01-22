@@ -8,34 +8,39 @@
       </div>
     </div>
 
-    <div class="catalog">
-      {{#each products}}
-        <div class="product-card">
-          <div class="container has-transition">
+      <div class="catalog carousel">
+          <button class="carousel-btn prev">‹-</button>
 
-            <div class="product-description">
-              <div class="title">{{title}}</div>
-              <div class="properties">{{properties}}</div>
-              <div class="details">{{{details}}}</div>
-            </div>
+          <div class="carousel-track">
+              {{#each products}}
+                  <div class="product-card">
+                      <div class="container has-transition">
 
-            <div class="product-img">
-              <div class="availability">{{availability}}</div>
-              {{> pictureBlock
-                path="/imgs/textile/"
-                base=img.base
-                avif1="495"
-                avif2="990"
-                sizes=""
-                params="class=\"has-transition\""
-                alt=img.alt
-              }}
-            </div>
+                          <div class="product-description">
+                              <div class="title">{{title}}</div>
+                              <div class="properties">{{properties}}</div>
+                              <div class="details">{{{details}}}</div>
+                          </div>
 
+                          <div class="product-img">
+                              <div class="availability">{{availability}}</div>
+                              {{> pictureBlock
+                                      path="/imgs/textile/"
+                                      base=img.base
+                                      avif1="495"
+                                      avif2="990"
+                                      sizes=""
+                                      params="class=\"has-transition\""
+                                      alt=img.alt}}
+                          </div>
+
+                      </div>
+                  </div>
+              {{/each}}
           </div>
-        </div>
-      {{/each}}
-    </div>
+
+          <button class="carousel-btn next">-›</button>
+      </div>
 
     <div class="textile-title video-intro">
       <div class="container has-transition">
