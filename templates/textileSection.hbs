@@ -9,7 +9,6 @@
     </div>
 
       <div class="catalog carousel">
-          <button class="carousel-btn prev">‹-</button>
 
           <div class="carousel-track">
               {{#each products}}
@@ -29,7 +28,7 @@
                                       base=img.base
                                       avif1="495"
                                       avif2="990"
-                                      sizes=""
+                                      sizes='sizes="(min-width: 1200px) 700px, 100vw"'
                                       params="class=\"has-transition\""
                                       alt=img.alt}}
                           </div>
@@ -39,7 +38,6 @@
               {{/each}}
           </div>
 
-          <button class="carousel-btn next">-›</button>
       </div>
 
     <div class="textile-title video-intro">

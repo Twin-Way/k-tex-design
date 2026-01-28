@@ -109,69 +109,6 @@ function initTextile() {
     });
 }
 
-//Реализация бесконечной прокрутки
-window.addEventListener('load', () => {
-    const carousel = document.querySelector('.carousel');
-    if (!carousel) return;
-
-    const track = carousel.querySelector('.carousel-track');
-    const prev = carousel.querySelector('.prev');
-    const next = carousel.querySelector('.next');
-
-    let cards = Array.from(track.children);
-    const visible = 2;
-    const gap = 20;
-
-    if (!cards.length) return;
-
-    const cardWidth =
-        cards[0].offsetWidth + gap;
-
-    // 🔁 клонируем
-    cards.slice(0, visible).forEach(card => {
-        track.appendChild(card.cloneNode(true));
-    });
-
-    cards.slice(-visible).forEach(card => {
-        track.insertBefore(card.cloneNode(true), track.firstChild);
-    });
-
-    cards = Array.from(track.children);
-
-    let index = visible;
-
-    track.style.transition = 'none';
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-    next.addEventListener('click', () => {
-        index++;
-        track.style.transition = 'transform 0.4s ease';
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-        if (index === cards.length - visible) {
-            setTimeout(() => {
-                track.style.transition = 'none';
-                index = visible;
-                track.style.transform = `translateX(-${index * cardWidth}px)`;
-            }, 400);
-        }
-    });
-
-    prev.addEventListener('click', () => {
-        index--;
-        track.style.transition = 'transform 0.4s ease';
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-        if (index === visible - 1) {
-            setTimeout(() => {
-                track.style.transition = 'none';
-                index = cards.length - visible * 2;
-                track.style.transform = `translateX(-${index * cardWidth}px)`;
-            }, 400);
-        }
-    });
-});
-
 // Портфолио: пагинация
 function initPortfolio() {
     const projects = Array.from(document.querySelectorAll('#portfolio .project'));

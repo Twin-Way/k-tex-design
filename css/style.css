@@ -534,38 +534,30 @@ picture {
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
 .carousel-track {
     display: flex;
     gap: 20px;
-    transition: transform 0.4s ease;
-    will-change: transform;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 40px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
 }
 
 .product-card {
-    flex: 0 0 calc(50% - 10px); /* две карточки на экран */
+    flex: 0 0 750px; /* две карточки на экран */
     box-sizing: border-box;
-    overflow: hidden;
+    scroll-snap-align: start;
 }
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background: var(--color_1);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.carousel-btn.prev { left: -90px }
-.carousel-btn.next { right: -90px; }
-
 
 #textile .wrapper {
   flex-direction: column;
@@ -634,7 +626,7 @@ picture {
 
 .product-description .properties {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 16px;
   line-height: 22px;
 }
@@ -642,15 +634,15 @@ picture {
 .product-description .details {
   font-size: 16px;
   line-height: 22px;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
-  height: 0;
+  max-height: 0;
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
 }
 
 .details.opened {
-  height: 100%;
+  max-height: 1000px;
   opacity: 1;
 }
 
@@ -665,6 +657,7 @@ picture {
   height: auto;
   aspect-ratio: 3 / 2;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .product-card:hover img {
@@ -979,8 +972,7 @@ footer {
 }
 
 /* Для небольшх горизонтальных устройств */
-@media only screen and (min-width: 981px) and (max-width: 1200px) {
-  @media only screen and (orientation: landscape) {
+@media only screen and (min-width: 981px) and (max-width: 1200px) and (orientation: landscape) {
     /* -- Портфолио -- */
     .project-overlay .description {
       padding-top: 90%;
@@ -996,11 +988,11 @@ footer {
     }
 
     .product-card {
-      width: 80%;
+      flex: 0 0 60%;
     }
 
     .product-description .details {
-      text-align: justify;
+      text-align: center;
     }
 
     .video {
@@ -1032,7 +1024,6 @@ footer {
     .contact-map {
       width: 100%;
     }
-  }
 }
 
 /* Вертикальное размещение */
@@ -1258,9 +1249,8 @@ footer {
     line-height: 22px;
   }
 
-  .product-card .container {
-    flex-direction: column-reverse;
-    gap: 40px;
+  .product-card {
+      flex: 0 0 70%;
   }
 
   .product-description {
@@ -1281,7 +1271,7 @@ footer {
   }
 
   .product-description .details {
-    text-align: justify;
+    text-align: center;
   }
 
   .product-img {
@@ -1372,6 +1362,41 @@ footer {
     font-size: 10px;
   }
 
+  .product-card {
+      flex: 0 0 95%;
+  }
+
+  .carousel-track {
+      gap: 0;
+      width: 100%;
+  }
+
+    .product-card, .product-card .container {
+        flex-direction: column;
+        align-items: stretch;
+        overflow: visible;
+    }
+
+    .product-description,
+    .product-img {
+        width:100%;
+        padding: 0;
+    }
+
+    .product-description .title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .product-description .properties,
+    .product-description .details {
+        font-size: 14px;
+        line-height: 20px;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+    }
+
   .textile-title {
     text-align: justify;
   }
@@ -1431,7 +1456,7 @@ footer {
   }
 
   .product-card {
-    width: 80%;
+    flex: 0 0 95%;
   }
 
   .video {
