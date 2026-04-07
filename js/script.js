@@ -218,6 +218,12 @@ function initYear() {
     }
 }
 
+//Взаимодействие с картой только если на неё кликнули
+const overlay = document.querySelector('.map-overlay');
+overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+});
+
 // Инициализация всех компонентов после загрузки DOM
 document.addEventListener("DOMContentLoaded", () => {
     initBgPreload();
